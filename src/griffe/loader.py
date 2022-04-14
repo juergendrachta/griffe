@@ -225,7 +225,7 @@ class GriffeLoader:
             del obj[name]  # noqa: WPS420
 
         for new_member, alias_lineno, alias_endlineno in expanded:
-            if new_member.name not in obj.members or obj[new_member.name].lineno < alias_lineno:
+            if new_member.name not in obj.members or (obj[new_member.name].lineno and obj[new_member.name].lineno < alias_lineno):
                 obj[new_member.name] = Alias(
                     new_member.name, new_member, lineno=alias_lineno, endlineno=alias_endlineno
                 )

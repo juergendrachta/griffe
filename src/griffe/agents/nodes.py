@@ -635,6 +635,10 @@ def _get_unaryop_annotation(node: NodeUnaryOp, parent: Module | Class) -> Expres
     return Expression(_get_annotation(node.op, parent), _get_annotation(node.operand, parent))
 
 
+def _get_keyword_annotation(node: NodeKeyword, parent: Module | Class) -> Expression:
+    return Expression("Keyword")  # TODO quick hack
+
+
 _node_annotation_map: dict[Type, Callable[[Any, Module | Class], str | Name | Expression]] = {
     NodeAttribute: _get_attribute_annotation,
     NodeBinOp: _get_binop_annotation,
@@ -650,6 +654,7 @@ _node_annotation_map: dict[Type, Callable[[Any, Module | Class], str | Name | Ex
     NodeSubscript: _get_subscript_annotation,
     NodeTuple: _get_tuple_annotation,
     NodeUnaryOp: _get_unaryop_annotation,
+    NodeKeyword: _get_keyword_annotation,
 }
 
 # TODO: remove once Python 3.8 support is dropped

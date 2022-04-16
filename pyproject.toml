@@ -13,7 +13,7 @@ readme = "README.md"
 requires-python = ">=3.7"
 keywords = []
 # dynamic = ["version"]
-version = "0.0.16.post1"
+version = "0.16.0.post1"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
